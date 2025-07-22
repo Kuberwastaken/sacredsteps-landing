@@ -1,12 +1,4 @@
 {
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist/public",
-  "installCommand": "npm install",
-  "functions": {
-    "api/index.ts": {
-      "runtime": "@vercel/node@3"
-    }
-  },
   "rewrites": [
     {
       "source": "/((?!api).*)",

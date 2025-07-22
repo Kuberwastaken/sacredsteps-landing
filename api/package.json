@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@vercel/node": "^5.3.6"
+  }
+}
