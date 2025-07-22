@@ -2,12 +2,39 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, BookOpen, Star, Trophy, Flame, Heart, CheckCircle, Crown, Sparkles, Brain } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [activeTab, setActiveTab] = useState('learn');
+  const [streakCount, setStreakCount] = useState(7);
+  const [progress, setProgress] = useState(60);
+  const [hearts, setHearts] = useState(4);
+  const [completedLessons, setCompletedLessons] = useState(3);
+  const [isLessonCompleted, setIsLessonCompleted] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContinueLesson = () => {
+    if (!isLessonCompleted) {
+      setIsLessonCompleted(true);
+      setCompletedLessons(prev => Math.min(prev + 1, 5));
+      setProgress(prev => Math.min(prev + 20, 100));
+      setStreakCount(prev => prev + 1);
+    }
+  };
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+  };
+
+  const handleHeartClick = () => {
+    if (hearts < 5) {
+      setHearts(prev => prev + 1);
     }
   };
 
@@ -75,20 +102,18 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="px-4 py-3 rounded-l-lg border border-r-0 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent w-64"
-                />
-                <Button 
-                  onClick={() => scrollToSection('waitlist')}
-                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-r-lg font-medium transition-all duration-200 flex items-center"
-                >
-                  Join Waitlist
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
+              <input 
+                type="email" 
+                placeholder="Enter your email"
+                className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent w-64 h-12"
+              />
+              <Button 
+                onClick={() => scrollToSection('waitlist')}
+                className="bg-gray-900 hover:bg-gray-800 text-white px-6 rounded-lg font-medium transition-all duration-200 flex items-center h-12 border border-gray-900"
+              >
+                Join Waitlist
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </motion.div>
             
             {/* Stats */}
@@ -116,13 +141,19 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             {/* Phone Frame */}
-            <div className="relative mx-auto w-80 h-[640px]">
+            <div className="relative mx-auto w-72 h-[600px]">
               {/* Phone Outline */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 rounded-[2.5rem] shadow-2xl border-[3px] border-gray-700">
                 {/* Screen */}
-                <div className="absolute top-4 left-4 right-4 bottom-4 bg-white rounded-[2.5rem] overflow-hidden">
+                <div className="absolute top-2 left-2 right-2 bottom-2 bg-white rounded-[2rem] overflow-hidden">
+                  {/* Top Notch */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-20">
+                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-800 rounded-full"></div>
+                    <div className="absolute top-2 right-3 w-1.5 h-1.5 bg-gray-700 rounded-full"></div>
+                  </div>
+                  
                   {/* Status Bar */}
-                  <div className="flex justify-between items-center px-6 py-3 bg-sacred-primary text-white">
+                  <div className="flex justify-between items-center px-6 py-1 pt-7 text-white absolute top-0 left-0 right-0 z-30">
                     <span className="text-sm font-medium">9:41 AM</span>
                     <div className="flex items-center space-x-1">
                       <div className="w-4 h-2 bg-white rounded-sm"></div>
@@ -131,7 +162,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* App Header */}
-                  <div className="px-6 py-4 border-b border-sacred-border">
+                  <div className="px-6 py-4 pt-10 border-b border-sacred-border bg-white">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-sacred-accent rounded-full flex items-center justify-center">
@@ -142,9 +173,17 @@ export default function HeroSection() {
                           <p className="text-xs sacred-secondary">Level 12 • Buddhism</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setStreakCount(prev => prev + 1)}>
                         <Flame className="w-5 h-5 text-orange-500" />
-                        <span className="font-bold text-orange-500">7</span>
+                        <motion.span 
+                          key={streakCount}
+                          className="font-bold text-orange-500"
+                          initial={{ scale: 1 }}
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {streakCount}
+                        </motion.span>
                       </div>
                     </div>
                   </div>
@@ -153,10 +192,15 @@ export default function HeroSection() {
                   <div className="px-6 py-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm sacred-secondary">Daily Goal</span>
-                      <span className="text-sm font-medium sacred-primary">3/5 lessons</span>
+                      <span className="text-sm font-medium sacred-primary">{completedLessons}/5 lessons</span>
                     </div>
-                    <div className="w-full bg-sacred-light rounded-full h-2">
-                      <div className="bg-sacred-accent h-2 rounded-full" style={{ width: '60%' }}></div>
+                    <div className="w-full bg-sacred-light rounded-full h-2 cursor-pointer" onClick={() => setProgress(prev => Math.min(prev + 10, 100))}>
+                      <motion.div 
+                        className="bg-sacred-accent h-2 rounded-full" 
+                        initial={{ width: '60%' }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 0.5 }}
+                      ></motion.div>
                     </div>
                   </div>
 
@@ -173,65 +217,125 @@ export default function HeroSection() {
                           <Star className="w-4 h-4 text-sacred-accent" />
                           <span className="text-sm">+50 XP</span>
                         </div>
-                        <button className="bg-white text-sacred-primary px-4 py-2 rounded-lg text-sm font-medium">
-                          Continue
-                        </button>
+                        <motion.button 
+                          className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                            isLessonCompleted 
+                              ? 'bg-green-500 text-white' 
+                              : 'bg-white text-sacred-primary hover:bg-gray-50'
+                          }`}
+                          onClick={handleContinueLesson}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {isLessonCompleted ? '✓ Completed' : 'Continue'}
+                        </motion.button>
                       </div>
                     </div>
                   </div>
 
                   {/* Achievements */}
-                  <div className="px-6 py-2">
-                    <h5 className="text-sm font-medium sacred-primary mb-3">Recent Achievements</h5>
-                    <div className="flex space-x-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-sacred-accent rounded-full flex items-center justify-center mb-1">
-                          <Trophy className="w-6 h-6 sacred-primary" />
+                  <div className="px-6 py-3">
+                    <h5 className="text-sm font-medium sacred-primary mb-2">Recent Achievements</h5>
+                    <div className="flex space-x-4 justify-center">
+                      <motion.div 
+                        className="flex flex-col items-center cursor-pointer"
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setStreakCount(prev => prev + 1)}
+                      >
+                        <div className="w-10 h-10 bg-sacred-accent rounded-full flex items-center justify-center mb-1">
+                          <Trophy className="w-5 h-5 sacred-primary" />
                         </div>
-                        <span className="text-xs sacred-secondary">First Lesson</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-1">
-                          <CheckCircle className="w-6 h-6 text-green-600" />
+                        <span className="text-xs sacred-secondary text-center">First Lesson</span>
+                      </motion.div>
+                      <motion.div 
+                        className="flex flex-col items-center cursor-pointer"
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setProgress(prev => Math.min(prev + 15, 100))}
+                      >
+                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-1">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
                         </div>
-                        <span className="text-xs sacred-secondary">Week Streak</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-50">
-                        <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-1">
-                          <Star className="w-6 h-6 text-gray-400" />
+                        <span className="text-xs sacred-secondary text-center">Week Streak</span>
+                      </motion.div>
+                      <motion.div 
+                        className="flex flex-col items-center cursor-pointer"
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => {
+                          setCompletedLessons(5);
+                          setProgress(100);
+                        }}
+                      >
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-1 transition-all duration-300 ${
+                          completedLessons >= 5 ? 'bg-purple-100' : 'bg-gray-100'
+                        }`}>
+                          <Star className={`w-5 h-5 ${completedLessons >= 5 ? 'text-purple-600' : 'text-gray-400'}`} />
                         </div>
-                        <span className="text-xs text-gray-400">Scholar</span>
-                      </div>
+                        <span className={`text-xs text-center ${completedLessons >= 5 ? 'sacred-secondary' : 'text-gray-400'}`}>Scholar</span>
+                      </motion.div>
                     </div>
                   </div>
 
                   {/* Hearts/Lives */}
-                  <div className="px-6 py-4">
+                  <div className="px-6 py-3">
                     <div className="flex items-center justify-between">
                       <span className="text-sm sacred-secondary">Hearts</span>
                       <div className="flex space-x-1">
                         {[...Array(5)].map((_, i) => (
-                          <Heart key={i} className={`w-5 h-5 ${i < 4 ? 'text-red-500 fill-current' : 'text-gray-300'}`} />
+                          <motion.div
+                            key={i}
+                            whileTap={{ scale: 0.8 }}
+                            onClick={handleHeartClick}
+                            className="cursor-pointer"
+                          >
+                            <Heart 
+                              className={`w-4 h-4 transition-all duration-200 ${
+                                i < hearts ? 'text-red-500 fill-current' : 'text-gray-300 hover:text-red-300'
+                              }`} 
+                            />
+                          </motion.div>
                         ))}
                       </div>
                     </div>
                   </div>
 
                   {/* Bottom Navigation */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-sacred-border p-4">
-                    <div className="flex justify-around">
-                      <div className="flex flex-col items-center">
-                        <BookOpen className="w-6 h-6 sacred-primary" />
-                        <span className="text-xs sacred-primary font-medium mt-1">Learn</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-60">
-                        <Users className="w-6 h-6 sacred-secondary" />
-                        <span className="text-xs sacred-secondary mt-1">Friends</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-60">
-                        <Trophy className="w-6 h-6 sacred-secondary" />
-                        <span className="text-xs sacred-secondary mt-1">Leaderboard</span>
-                      </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-sacred-border py-1.5 px-2">
+                    <div className="flex justify-around items-center">
+                      <motion.div 
+                        className={`flex flex-col items-center py-1 px-2 cursor-pointer ${
+                          activeTab === 'learn' ? '' : 'opacity-60'
+                        }`}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => handleTabClick('learn')}
+                      >
+                        <BookOpen className={`w-4 h-4 ${activeTab === 'learn' ? 'sacred-primary' : 'sacred-secondary'}`} />
+                        <span className={`text-xs mt-0.5 ${
+                          activeTab === 'learn' ? 'sacred-primary font-medium' : 'sacred-secondary'
+                        }`}>Learn</span>
+                      </motion.div>
+                      <motion.div 
+                        className={`flex flex-col items-center py-1 px-2 cursor-pointer ${
+                          activeTab === 'friends' ? '' : 'opacity-60'
+                        }`}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => handleTabClick('friends')}
+                      >
+                        <Users className={`w-4 h-4 ${activeTab === 'friends' ? 'sacred-primary' : 'sacred-secondary'}`} />
+                        <span className={`text-xs mt-0.5 ${
+                          activeTab === 'friends' ? 'sacred-primary font-medium' : 'sacred-secondary'
+                        }`}>Friends</span>
+                      </motion.div>
+                      <motion.div 
+                        className={`flex flex-col items-center py-1 px-2 cursor-pointer ${
+                          activeTab === 'leaderboard' ? '' : 'opacity-60'
+                        }`}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => handleTabClick('leaderboard')}
+                      >
+                        <Trophy className={`w-4 h-4 ${activeTab === 'leaderboard' ? 'sacred-primary' : 'sacred-secondary'}`} />
+                        <span className={`text-xs mt-0.5 ${
+                          activeTab === 'leaderboard' ? 'sacred-primary font-medium' : 'sacred-secondary'
+                        }`}>Leaderboard</span>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
