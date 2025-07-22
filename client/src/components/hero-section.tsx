@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, Flame, Star, Heart, Check, Lock } from "lucide-react";
+import { ArrowRight, Users, BookOpen } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -10,164 +10,165 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
-      <div className="absolute inset-0 opacity-10">
-        <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-blue-100"></div>
-      </div>
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative overflow-hidden pt-20 pb-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center max-w-4xl mx-auto">
           <motion.div 
-            className="text-center lg:text-left"
+            className="inline-flex items-center space-x-2 bg-sacred-light border border-sacred-border rounded-full px-4 py-2 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div 
-              className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-            >
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium sacred-gray">Now accepting early access</span>
-            </motion.div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold sacred-gray mb-6 leading-tight">
-              Learn about{" "}
-              <span className="gradient-text">world religions</span>{" "}
-              like never before
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Sacred Steps is the gamified learning platform that makes exploring religious traditions accessible, engaging, and rewarding for learners of all backgrounds.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.button 
+            <div className="w-2 h-2 bg-sacred-accent rounded-full"></div>
+            <span className="text-sm sacred-secondary">1,000+ learners have already joined</span>
+          </motion.div>
+          
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold sacred-primary mb-6 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            Learn religions like <br />
+            <span className="italic font-light">never before.</span>
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg md:text-xl sacred-secondary mb-12 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Sacred Steps makes exploring world religions accessible through gamified, bite-sized lessons that respect and celebrate spiritual diversity.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="flex">
+              <input 
+                type="email" 
+                placeholder="Email Address"
+                className="px-4 py-3 rounded-l-lg border border-r-0 border-sacred-border focus:outline-none focus:ring-2 focus:ring-sacred-primary focus:border-transparent w-64"
+              />
+              <button 
                 onClick={() => scrollToSection('waitlist')}
-                className="relative bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-sacred-primary text-white px-6 py-3 rounded-r-lg font-medium hover:bg-gray-800 transition-colors duration-200 flex items-center"
               >
-                <span className="relative">Join the Waitlist</span>
-              </motion.button>
-              <motion.button 
-                onClick={() => scrollToSection('demo')}
-                className="bg-white/80 backdrop-blur-sm sacred-gray px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-200"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Play className="inline w-5 h-5 mr-2" />
-                Watch Demo
-              </motion.button>
-            </div>
-            
-            <div className="flex items-center justify-center lg:justify-start space-x-8 mt-8 pt-8 border-t border-gray-200">
-              <div className="text-center">
-                <div className="text-2xl font-bold sacred-gray">12+</div>
-                <div className="text-sm text-gray-500">Religions</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold sacred-gray">200+</div>
-                <div className="text-sm text-gray-500">Lessons</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold sacred-gray">5,000+</div>
-                <div className="text-sm text-gray-500">On Waitlist</div>
-              </div>
+                Get Notified
+              </button>
             </div>
           </motion.div>
           
+          {/* App Preview */}
           <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            className="relative mx-auto max-w-4xl"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl border border-sacred-border p-6 md:p-8">
+              {/* Sacred Steps App Preview */}
               <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-lg font-semibold sacred-gray">Today's Lesson</h3>
-                  <p className="text-sm text-gray-500">Buddhism Basics</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Heart className="w-5 h-5 text-red-500" />
-                  <span className="text-sm font-semibold">5</span>
-                </div>
-              </div>
-              
-              <div className="mb-6">
-                <div className="flex justify-between text-sm text-gray-500 mb-2">
-                  <span>Progress</span>
-                  <span>75%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <motion.div 
-                    className="progress-bar h-3 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: "75%" }}
-                    transition={{ delay: 0.5, duration: 1.5 }}
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="lesson-card p-4 rounded-xl">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
-                      <Check className="text-white w-4 h-4" />
-                    </div>
-                    <span className="text-sm sacred-gray">The Four Noble Truths</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-sacred-accent rounded-lg flex items-center justify-center">
+                    <BookOpen className="w-4 h-4 sacred-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold sacred-primary">My Learning Journey</h3>
+                    <p className="text-sm sacred-secondary">Track your progress across world religions</p>
                   </div>
                 </div>
-                <div className="lesson-card p-4 rounded-xl border-2 border-blue-500">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center animate-pulse">
-                      <Play className="text-white w-4 h-4" />
-                    </div>
-                    <span className="text-sm sacred-gray font-medium">The Eightfold Path</span>
-                  </div>
-                </div>
-                <div className="lesson-card p-4 rounded-xl opacity-60">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                      <Lock className="text-gray-500 w-4 h-4" />
-                    </div>
-                    <span className="text-sm text-gray-400">Meditation Practices</span>
-                  </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-6 h-6 bg-sacred-accent rounded-full flex items-center justify-center text-xs font-bold sacred-primary">7</div>
+                  <span className="text-sm sacred-secondary">Day streak</span>
                 </div>
               </div>
-              
-              <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Flame className="w-5 h-5 sacred-orange" />
-                  <span className="text-sm font-semibold sacred-gray">7 day streak</span>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Left Column - Lessons */}
+                <div className="space-y-4">
+                  <div className="bg-sacred-light p-4 rounded-lg border border-sacred-border">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium sacred-primary">Buddhism Basics</span>
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs">✓</span>
+                      </div>
+                    </div>
+                    <p className="text-xs sacred-secondary">Four Noble Truths • Eightfold Path</p>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg border-2 border-sacred-primary">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium sacred-primary">Islam Foundations</span>
+                      <div className="w-6 h-6 bg-sacred-primary rounded-full flex items-center justify-center animate-pulse">
+                        <ArrowRight className="w-3 h-3 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-xs sacred-secondary">Five Pillars • Prayer & Pilgrimage</p>
+                  </div>
+
+                  <div className="bg-sacred-light p-4 rounded-lg border border-sacred-border opacity-60">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium sacred-secondary">Christianity Origins</span>
+                      <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                        <span className="text-gray-500 text-xs">🔒</span>
+                      </div>
+                    </div>
+                    <p className="text-xs sacred-secondary">Life of Jesus • Core Teachings</p>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Star className="w-5 h-5 sacred-orange" />
-                  <span className="text-sm font-semibold sacred-gray">1,250 XP</span>
+
+                {/* Right Column - Progress */}
+                <div className="space-y-4">
+                  <div className="bg-white p-4 rounded-lg border border-sacred-border">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-medium sacred-primary">Weekly Challenge</span>
+                      <span className="text-xs bg-sacred-accent text-sacred-primary px-2 py-1 rounded">3/5</span>
+                    </div>
+                    <p className="text-xs sacred-secondary mb-3">Complete lessons from 3 different religions</p>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-sacred-primary h-2 rounded-full" style={{width: '60%'}}></div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg border border-sacred-border">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-medium sacred-primary">XP Progress</span>
+                      <span className="text-xs sacred-secondary">1,250 / 1,500 XP</span>
+                    </div>
+                    <p className="text-xs sacred-secondary mb-3">Level up to unlock advanced lessons</p>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-sacred-accent h-2 rounded-full" style={{width: '83%'}}></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* Floating religious symbols */}
-            <motion.div 
-              className="absolute -top-4 -left-4 w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="text-purple-600 text-xl">🕉</span>
-            </motion.div>
-            <motion.div 
-              className="absolute -bottom-4 -right-4 w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            >
-              <span className="text-orange-600 text-xl">✝</span>
-            </motion.div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-10 w-20 h-20 bg-sacred-accent/10 rounded-full"
+          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-40 right-20 w-32 h-32 bg-gray-100 rounded-full"
+          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-1/4 w-16 h-16 bg-sacred-accent/5 rounded-full"
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
       </div>
     </section>
   );

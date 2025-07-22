@@ -24,12 +24,12 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Sacred Steps Custom Colors */
-  --sacred-green: hsl(160, 84%, 39%);
-  --sacred-blue: hsl(217, 91%, 60%);
-  --sacred-orange: hsl(38, 92%, 50%);
-  --sacred-purple: hsl(248, 53%, 58%);
-  --sacred-gray: hsl(215, 28%, 17%);
+  /* Sacred Steps Custom Colors - Monochrome */
+  --sacred-primary: hsl(0, 0%, 9%);
+  --sacred-secondary: hsl(0, 0%, 45%);
+  --sacred-accent: hsl(45, 100%, 51%);
+  --sacred-light: hsl(0, 0%, 96%);
+  --sacred-border: hsl(0, 0%, 90%);
 }
 
 .dark {
@@ -66,64 +66,54 @@
 }
 
 @layer utilities {
-  .sacred-green {
-    color: var(--sacred-green);
+  .sacred-primary {
+    color: var(--sacred-primary);
   }
   
-  .bg-sacred-green {
-    background-color: var(--sacred-green);
+  .bg-sacred-primary {
+    background-color: var(--sacred-primary);
   }
   
-  .sacred-blue {
-    color: var(--sacred-blue);
+  .sacred-secondary {
+    color: var(--sacred-secondary);
   }
   
-  .bg-sacred-blue {
-    background-color: var(--sacred-blue);
+  .bg-sacred-secondary {
+    background-color: var(--sacred-secondary);
   }
   
-  .sacred-orange {
-    color: var(--sacred-orange);
+  .sacred-accent {
+    color: var(--sacred-accent);
   }
   
-  .bg-sacred-orange {
-    background-color: var(--sacred-orange);
+  .bg-sacred-accent {
+    background-color: var(--sacred-accent);
   }
   
-  .sacred-purple {
-    color: var(--sacred-purple);
+  .sacred-light {
+    color: var(--sacred-light);
   }
   
-  .bg-sacred-purple {
-    background-color: var(--sacred-purple);
-  }
-  
-  .sacred-gray {
-    color: var(--sacred-gray);
-  }
-  
-  .bg-sacred-gray {
-    background-color: var(--sacred-gray);
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, var(--sacred-green), var(--sacred-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .bg-sacred-light {
+    background-color: var(--sacred-light);
   }
 
   .progress-bar {
-    background: linear-gradient(90deg, var(--sacred-green), var(--sacred-blue));
+    background-color: var(--sacred-primary);
     border-radius: 20px;
     height: 8px;
     transition: width 2s ease-in-out;
   }
 
   .lesson-card {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    background-color: var(--sacred-light);
+    border: 1px solid var(--sacred-border);
+    transition: all 0.3s ease;
+  }
+
+  .lesson-card:hover {
+    border-color: var(--sacred-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   @keyframes float {

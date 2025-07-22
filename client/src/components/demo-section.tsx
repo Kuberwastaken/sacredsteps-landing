@@ -24,8 +24,8 @@ export default function DemoSection() {
   };
 
   return (
-    <section id="demo" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="demo" className="py-20 bg-sacred-light">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -33,25 +33,25 @@ export default function DemoSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold sacred-gray mb-4">Experience Sacred Steps</h2>
-          <p className="text-xl text-gray-600">Try a sample lesson to see how our gamified approach makes learning about world religions engaging</p>
+          <h2 className="text-4xl font-bold sacred-primary mb-4">Experience Sacred Steps</h2>
+          <p className="text-xl sacred-secondary">Try a sample lesson to see how our approach makes learning about world religions engaging</p>
         </motion.div>
         
         <div className="max-w-4xl mx-auto">
           <motion.div 
-            className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-3xl p-8 md:p-12"
+            className="bg-white rounded-2xl border border-sacred-border shadow-lg p-8 md:p-12"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="overflow-hidden">
               {/* Demo Header */}
-              <div className="bg-gradient-to-r from-emerald-500 to-blue-600 p-6 text-white">
+              <div className="bg-sacred-primary p-6 rounded-lg text-white mb-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-2xl font-bold">Islam: The Five Pillars</h3>
-                    <p className="text-blue-100">Learn about the foundational practices of Islam</p>
+                    <p className="text-gray-200">Learn about the foundational practices of Islam</p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
@@ -93,8 +93,8 @@ export default function DemoSection() {
                         onClick={() => handleAnswerSelect(answer.id)}
                         className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${
                           selectedAnswer === answer.id
-                            ? 'border-emerald-500 bg-green-50'
-                            : 'border-gray-200 hover:border-emerald-500 hover:bg-green-50'
+                            ? 'border-sacred-primary bg-sacred-light'
+                            : 'border-sacred-border hover:border-sacred-primary hover:bg-sacred-light'
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -102,7 +102,7 @@ export default function DemoSection() {
                         <div className="flex items-center space-x-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
                             selectedAnswer === answer.id
-                              ? 'bg-emerald-500 text-white'
+                              ? 'bg-sacred-primary text-white'
                               : 'bg-gray-200 text-gray-700'
                           }`}>
                             {answer.id}
@@ -115,13 +115,13 @@ export default function DemoSection() {
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <button className="text-gray-500 hover:sacred-gray transition-colors">
+                  <button className="sacred-secondary hover:sacred-primary transition-colors">
                     Skip Question
                   </button>
                   <motion.button 
-                    className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="bg-sacred-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Check Answer
                   </motion.button>
@@ -135,12 +135,12 @@ export default function DemoSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <p className="text-gray-600 mb-4">This is just a preview! Join our waitlist to experience the full Sacred Steps journey.</p>
+              <p className="sacred-secondary mb-4">This is just a preview! Join our waitlist to experience the full Sacred Steps journey.</p>
               <motion.button 
                 onClick={scrollToWaitlist}
-                className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-sacred-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Join Waitlist for Full Access
               </motion.button>

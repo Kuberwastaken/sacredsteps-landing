@@ -1,5 +1,3 @@
-import { Mountain } from "lucide-react";
-
 export default function Navigation() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -9,38 +7,26 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-sacred-border">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center">
-              <Mountain className="text-white text-lg" />
+            <div className="w-8 h-8 bg-sacred-accent rounded-lg flex items-center justify-center">
+              <span className="text-sacred-primary font-bold text-lg">S</span>
             </div>
-            <span className="text-2xl font-bold gradient-text">Sacred Steps</span>
+            <span className="text-xl font-semibold sacred-primary">Sacred Steps</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
-              onClick={() => scrollToSection('features')}
-              className="sacred-gray hover:text-emerald-500 transition-colors"
-            >
-              Features
-            </button>
-            <button 
               onClick={() => scrollToSection('demo')}
-              className="sacred-gray hover:text-emerald-500 transition-colors"
+              className="text-sm sacred-secondary hover:sacred-primary transition-colors duration-200"
             >
               Demo
             </button>
             <button 
-              onClick={() => scrollToSection('waitlist')}
-              className="sacred-gray hover:text-emerald-500 transition-colors"
-            >
-              Join Waitlist
-            </button>
-            <button 
               onClick={() => scrollToSection('faq')}
-              className="sacred-gray hover:text-emerald-500 transition-colors"
+              className="text-sm sacred-secondary hover:sacred-primary transition-colors duration-200"
             >
               FAQ
             </button>
@@ -48,9 +34,9 @@ export default function Navigation() {
           
           <button 
             onClick={() => scrollToSection('waitlist')}
-            className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-sacred-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all duration-200"
           >
-            Join Waitlist
+            Get started
           </button>
         </div>
       </div>

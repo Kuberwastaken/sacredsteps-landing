@@ -33,8 +33,8 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 bg-sacred-light">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -42,15 +42,15 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold sacred-gray mb-4">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-600">Everything you need to know about Sacred Steps</p>
+          <h2 className="text-4xl font-bold sacred-primary mb-4">Frequently Asked Questions</h2>
+          <p className="text-xl sacred-secondary">Everything you need to know about Sacred Steps</p>
         </motion.div>
         
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <motion.div 
               key={index}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200"
+              className="bg-white rounded-2xl border border-sacred-border"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -58,14 +58,14 @@ export default function FAQSection() {
             >
               <button 
                 onClick={() => toggleFAQ(index)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 rounded-2xl"
+                className="w-full p-6 text-left flex items-center justify-between hover:bg-sacred-light transition-colors duration-200 rounded-2xl"
               >
-                <h3 className="text-lg font-semibold sacred-gray pr-4">{faq.question}</h3>
+                <h3 className="text-lg font-semibold sacred-primary pr-4">{faq.question}</h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronDown className="text-gray-400 w-5 h-5" />
+                  <ChevronDown className="sacred-secondary w-5 h-5" />
                 </motion.div>
               </button>
               <motion.div
@@ -77,7 +77,7 @@ export default function FAQSection() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="px-6 pb-6 text-gray-600">
+                <div className="px-6 pb-6 sacred-secondary">
                   <p>{faq.answer}</p>
                 </div>
               </motion.div>

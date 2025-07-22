@@ -127,8 +127,8 @@ export default function WaitlistSection() {
   }
 
   return (
-    <section id="waitlist" className="py-20 bg-gradient-to-br from-emerald-50/50 to-blue-50/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="waitlist" className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -136,12 +136,12 @@ export default function WaitlistSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold sacred-gray mb-4">Be Among the First to Experience Sacred Steps</h2>
-          <p className="text-xl text-gray-600">Join thousands of learners waiting for early access to the most engaging way to learn about world religions.</p>
+          <h2 className="text-4xl font-bold sacred-primary mb-4">Be Among the First to Experience Sacred Steps</h2>
+          <p className="text-xl sacred-secondary">Join thousands of learners waiting for early access to the most engaging way to learn about world religions.</p>
         </motion.div>
         
         <motion.div 
-          className="bg-white rounded-3xl shadow-2xl p-8 md:p-12"
+          className="bg-white rounded-2xl border border-sacred-border shadow-lg p-8 md:p-12"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -149,8 +149,8 @@ export default function WaitlistSection() {
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold sacred-gray mb-4">What You'll Get:</h3>
-              <ul className="space-y-3 text-gray-600">
+              <h3 className="text-2xl font-bold sacred-primary mb-4">What You'll Get:</h3>
+              <ul className="space-y-3 sacred-secondary">
                 {benefits.map((benefit, index) => (
                   <motion.li 
                     key={index}
@@ -160,7 +160,7 @@ export default function WaitlistSection() {
                     transition={{ delay: index * 0.1, duration: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <CheckCircle className="text-emerald-500 mr-3 w-5 h-5" />
+                    <CheckCircle className="text-sacred-primary mr-3 w-5 h-5" />
                     {benefit}
                   </motion.li>
                 ))}
@@ -170,7 +170,7 @@ export default function WaitlistSection() {
             <div>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <div>
-                  <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="email" className="block text-sm font-medium sacred-primary mb-2">
                     Email Address
                   </Label>
                   <Input
@@ -178,7 +178,7 @@ export default function WaitlistSection() {
                     type="email"
                     placeholder="your.email@example.com"
                     {...form.register("email")}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-sacred-border rounded-xl focus:ring-2 focus:ring-sacred-primary focus:border-transparent transition-all duration-300"
                   />
                   {form.formState.errors.email && (
                     <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
@@ -220,7 +220,7 @@ export default function WaitlistSection() {
                 <Button
                   type="submit"
                   disabled={joinWaitlistMutation.isPending}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-sacred-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-all duration-300"
                 >
                   {joinWaitlistMutation.isPending ? "Joining..." : "Join the Waitlist"}
                 </Button>
