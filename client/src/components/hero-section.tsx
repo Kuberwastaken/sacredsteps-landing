@@ -74,27 +74,6 @@ export default function HeroSection() {
             >
               Sacred Steps is the world's first AI-powered religious education platform. Experience personalized, gamified lessons that adapt to your learning style while exploring world religions with respect and authenticity.
             </motion.p>
-
-            {/* AI Features Badges */}
-            <motion.div 
-              className="flex flex-wrap gap-3 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-            >
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                <Brain className="w-3 h-3 mr-1" />
-                AI-Generated Content
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                <Star className="w-3 h-3 mr-1" />
-                Personalized Learning
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                <Trophy className="w-3 h-3 mr-1" />
-                Gamified Experience
-              </Badge>
-            </motion.div>
             
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 mb-12"
