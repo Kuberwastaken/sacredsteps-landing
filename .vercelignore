@@ -5,11 +5,9 @@ node_modules
 .env.production
 .DS_Store
 *.log
-dist
 .replit
 replit.nix
 .vscode
 .idea
 coverage
 .nyc_output
-server/

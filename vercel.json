@@ -1,27 +1,16 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "../dist/public"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/favicon/(.*)",
-      "dest": "/client/favicon/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/public/$1"
-    }
-  ],
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
   "functions": {
-    "api/*.ts": {
-      "runtime": "@vercel/node"
+    "api/index.ts": {
+      "runtime": "@vercel/node@3"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
