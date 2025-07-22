@@ -133,7 +133,6 @@ export default function HeroSection() {
                   
                   {/* Status Bar */}
                   <div className="flex justify-between items-center px-6 py-1 pt-7 text-white absolute top-0 left-0 right-0 z-30">
-                    <span className="text-sm font-medium">9:41 AM</span>
                     <div className="flex items-center space-x-1">
                       <div className="w-4 h-2 bg-white rounded-sm"></div>
                       <div className="w-1 h-3 bg-white rounded-full"></div>
@@ -144,8 +143,12 @@ export default function HeroSection() {
                   <div className="px-6 py-4 pt-10 border-b border-sacred-border bg-white">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-sacred-accent rounded-full flex items-center justify-center">
-                          <BookOpen className="w-5 h-5 sacred-primary" />
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
+                          <img 
+                            src="/favicon/favicon-96x96.png" 
+                            alt="Sacred Steps Logo" 
+                            className="w-10 h-10"
+                          />
                         </div>
                         <div>
                           <h3 className="font-bold sacred-primary">Sacred Steps</h3>
@@ -186,21 +189,21 @@ export default function HeroSection() {
                   {/* Current Lesson */}
                   <div className="px-6 py-4">
                     <div className="bg-gradient-to-r from-sacred-primary to-gray-800 text-white p-4 rounded-2xl">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold">Buddhism: Four Noble Truths</h4>
-                        <Crown className="w-5 h-5 text-sacred-accent" />
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-semibold flex items-center">Buddhism: Four Noble Truths</h4>
+                        <Crown className="w-5 h-5 text-yellow-400 -mt-0.5" />
                       </div>
                       <p className="text-sm opacity-90 mb-3">Learn about suffering, its causes, and the path to enlightenment</p>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          <Star className="w-4 h-4 text-sacred-accent" />
+                          <Star className="w-4 h-4 text-yellow-400" />
                           <span className="text-sm">+50 XP</span>
                         </div>
                         <motion.button 
                           className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             isLessonCompleted 
                               ? 'bg-green-500 text-white' 
-                              : 'bg-white text-sacred-primary hover:bg-gray-50'
+                              : 'bg-white text-gray-800 hover:bg-gray-100 shadow-sm'
                           }`}
                           onClick={handleContinueLesson}
                           whileTap={{ scale: 0.95 }}

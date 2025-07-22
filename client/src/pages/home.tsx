@@ -20,8 +20,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-sacred-accent rounded-lg flex items-center justify-center">
-                <span className="text-sacred-primary font-bold text-lg">S</span>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                <img 
+                  src="/favicon/favicon-96x96.png" 
+                  alt="Sacred Steps Logo" 
+                  className="w-8 h-8 rounded-lg"
+                />
               </div>
               <span className="text-xl font-semibold sacred-primary">Sacred Steps</span>
             </div>

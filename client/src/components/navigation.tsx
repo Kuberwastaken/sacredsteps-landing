@@ -15,8 +15,12 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+              <img 
+                src="/favicon/favicon-96x96.png" 
+                alt="Sacred Steps Logo" 
+                className="w-8 h-8 rounded-lg"
+              />
             </div>
             <div className="flex items-center space-x-2">
               <span className="text-xl font-semibold text-gray-900">Sacred Steps</span>

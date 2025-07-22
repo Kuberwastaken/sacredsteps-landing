@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Heart, Flame, Brain, Sparkles } from "lucide-react";
+import { Heart, Flame, Brain, Sparkles, Check, X } from "lucide-react";
 import { Badge } from "./ui/badge";
 
 export default function DemoSection() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [isAnswerChecked, setIsAnswerChecked] = useState(false);
   
   const answers = [
     { id: "A", text: "Shahada (Declaration of Faith)", correct: true },
@@ -14,7 +15,15 @@ export default function DemoSection() {
   ];
 
   const handleAnswerSelect = (answerId: string) => {
-    setSelectedAnswer(answerId);
+    if (!isAnswerChecked) {
+      setSelectedAnswer(answerId);
+    }
+  };
+
+  const handleCheckAnswer = () => {
+    if (selectedAnswer) {
+      setIsAnswerChecked(true);
+    }
   };
 
   const scrollToWaitlist = () => {
@@ -60,11 +69,11 @@ export default function DemoSection() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
-                      <Heart className="w-5 h-5" />
+                      <Heart className="w-5 h-5 text-red-500 fill-current" />
                       <span>5</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Flame className="w-5 h-5" />
+                      <Flame className="w-5 h-5 text-orange-500" />
                       <span>12</span>
                     </div>
                   </div>
@@ -92,30 +101,77 @@ export default function DemoSection() {
                   <h4 className="text-xl font-semibold sacred-gray mb-4">Which of the following is the first pillar of Islam?</h4>
                   
                   <div className="space-y-3">
-                    {answers.map((answer) => (
-                      <motion.button
-                        key={answer.id}
-                        onClick={() => handleAnswerSelect(answer.id)}
-                        className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${
-                          selectedAnswer === answer.id
-                            ? 'border-sacred-primary bg-sacred-light'
-                            : 'border-sacred-border hover:border-sacred-primary hover:bg-sacred-light'
-                        }`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                            selectedAnswer === answer.id
-                              ? 'bg-sacred-primary text-white'
-                              : 'bg-gray-200 text-gray-700'
-                          }`}>
-                            {answer.id}
+                    {answers.map((answer) => {
+                      const isSelected = selectedAnswer === answer.id;
+                      const isCorrect = answer.correct;
+                      const isIncorrect = isSelected && !answer.correct && isAnswerChecked;
+                      const shouldShowCorrect = isAnswerChecked && answer.correct;
+                      
+                      let buttonStyle = 'border-sacred-border hover:border-sacred-primary hover:bg-sacred-light';
+                      let circleStyle = 'bg-gray-200 text-gray-700';
+                      
+                      if (isAnswerChecked) {
+                        if (shouldShowCorrect) {
+                          buttonStyle = 'border-green-500 bg-green-50';
+                          circleStyle = 'bg-green-500 text-white';
+                        } else if (isIncorrect) {
+                          buttonStyle = 'border-red-500 bg-red-50';
+                          circleStyle = 'bg-red-500 text-white';
+                        } else if (!isSelected) {
+                          buttonStyle = 'border-gray-200 bg-gray-50 opacity-60';
+                          circleStyle = 'bg-gray-300 text-gray-500';
+                        }
+                      } else if (isSelected) {
+                        buttonStyle = 'border-sacred-primary bg-sacred-light';
+                        circleStyle = 'bg-sacred-primary text-white';
+                      }
+                      
+                      return (
+                        <motion.button
+                          key={answer.id}
+                          onClick={() => handleAnswerSelect(answer.id)}
+                          disabled={isAnswerChecked}
+                          className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${buttonStyle}`}
+                          whileHover={!isAnswerChecked ? { scale: 1.02 } : {}}
+                          whileTap={!isAnswerChecked ? { scale: 0.98 } : {}}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-3">
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${circleStyle}`}>
+                                {isAnswerChecked && shouldShowCorrect ? (
+                                  <Check className="w-4 h-4" />
+                                ) : isAnswerChecked && isIncorrect ? (
+                                  <X className="w-4 h-4" />
+                                ) : (
+                                  answer.id
+                                )}
+                              </div>
+                              <span className={isAnswerChecked && !isSelected && !shouldShowCorrect ? 'text-gray-500' : ''}>
+                                {answer.text}
+                              </span>
+                            </div>
+                            {isAnswerChecked && shouldShowCorrect && (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="text-green-500 font-medium text-sm"
+                              >
+                                Correct!
+                              </motion.div>
+                            )}
+                            {isAnswerChecked && isIncorrect && (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="text-red-500 font-medium text-sm"
+                              >
+                                Incorrect
+                              </motion.div>
+                            )}
                           </div>
-                          <span>{answer.text}</span>
-                        </div>
-                      </motion.button>
-                    ))}
+                        </motion.button>
+                      );
+                    })}
                   </div>
                 </div>
                 
@@ -123,13 +179,31 @@ export default function DemoSection() {
                   <button className="sacred-secondary hover:sacred-primary transition-colors">
                     Skip Question
                   </button>
-                  <motion.button 
-                    className="bg-sacred-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Check Answer
-                  </motion.button>
+                  {!isAnswerChecked ? (
+                    <motion.button 
+                      onClick={handleCheckAnswer}
+                      disabled={!selectedAnswer}
+                      className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                        selectedAnswer 
+                          ? 'bg-sacred-primary text-white hover:bg-gray-800' 
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                      whileHover={selectedAnswer ? { scale: 1.02 } : {}}
+                      whileTap={selectedAnswer ? { scale: 0.98 } : {}}
+                    >
+                      Check Answer
+                    </motion.button>
+                  ) : (
+                    <motion.button 
+                      className="bg-green-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300"
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Next Question
+                    </motion.button>
+                  )}
                 </div>
               </div>
             </div>
