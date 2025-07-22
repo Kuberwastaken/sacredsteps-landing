@@ -1,12 +1,27 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "client/dist",
-  "installCommand": "cd client && npm install",
-  "framework": "vite",
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "../dist/public"
+      }
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/favicon/(.*)",
+      "dest": "/client/favicon/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/$1"
+    }
+  ],
+  "functions": {
+    "api/*.ts": {
+      "runtime": "@vercel/node"
+    }
+  }
 }
