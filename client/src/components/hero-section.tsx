@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Users, BookOpen, Star, Trophy, Flame, Heart, CheckCircle, Crown } from "lucide-react";
+import { ArrowRight, Users, BookOpen, Star, Trophy, Flame, Heart, CheckCircle, Crown, Sparkles, Brain } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -16,33 +18,56 @@ export default function HeroSection() {
           {/* Left Column - Content */}
           <div className="max-w-2xl">
             <motion.div 
-              className="inline-flex items-center space-x-2 bg-sacred-light border border-sacred-border rounded-full px-4 py-2 mb-8"
+              className="inline-flex items-center space-x-2 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-2 h-2 bg-sacred-accent rounded-full"></div>
-              <span className="text-sm sacred-secondary">1,000+ learners have already joined</span>
+              <Sparkles className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Powered by AI • 1,000+ learners joined</span>
             </motion.div>
             
             <motion.h1 
-              className="text-5xl lg:text-6xl font-bold sacred-primary mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               Learn religions like <br />
-              <span className="italic font-light">never before.</span>
+              <span className="italic font-light text-gray-600">
+                never before.
+              </span>
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl sacred-secondary mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Sacred Steps makes exploring world religions accessible through gamified, bite-sized lessons that respect and celebrate spiritual diversity.
+              Sacred Steps is the world's first AI-powered religious education platform. Experience personalized, gamified lessons that adapt to your learning style while exploring world religions with respect and authenticity.
             </motion.p>
+
+            {/* AI Features Badges */}
+            <motion.div 
+              className="flex flex-wrap gap-3 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
+            >
+              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Brain className="w-3 h-3 mr-1" />
+                AI-Generated Content
+              </Badge>
+              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Star className="w-3 h-3 mr-1" />
+                Personalized Learning
+              </Badge>
+              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Trophy className="w-3 h-3 mr-1" />
+                Gamified Experience
+              </Badge>
+            </motion.div>
             
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 mb-12"
@@ -53,15 +78,16 @@ export default function HeroSection() {
               <div className="flex">
                 <input 
                   type="email" 
-                  placeholder="Email Address"
-                  className="px-4 py-3 rounded-l-lg border border-r-0 border-sacred-border focus:outline-none focus:ring-2 focus:ring-sacred-primary focus:border-transparent w-64"
+                  placeholder="Enter your email"
+                  className="px-4 py-3 rounded-l-lg border border-r-0 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent w-64"
                 />
-                <button 
+                <Button 
                   onClick={() => scrollToSection('waitlist')}
-                  className="bg-sacred-primary text-white px-6 py-3 rounded-r-lg font-medium hover:bg-gray-800 transition-colors duration-200 flex items-center"
+                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-r-lg font-medium transition-all duration-200 flex items-center"
                 >
-                  Get Notified
-                </button>
+                  Join Waitlist
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </motion.div>
             

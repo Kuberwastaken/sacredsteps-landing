@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { z } from "zod";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Brain, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 
@@ -136,8 +137,12 @@ export default function WaitlistSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold sacred-primary mb-4">Be Among the First to Experience Sacred Steps</h2>
-          <p className="text-xl sacred-secondary">Join thousands of learners waiting for early access to the most engaging way to learn about world religions.</p>
+                    <Badge className="mb-4 bg-gray-900 text-white hover:bg-gray-800">
+            <Sparkles className="w-3 h-3 mr-1" />
+            Join the AI Revolution
+          </Badge>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Be Among the First to Experience AI-Powered Religious Education</h2>
+          <p className="text-xl text-gray-600 mb-8">Join thousands of learners waiting to explore world religions through our revolutionary AI-driven platform</p>
         </motion.div>
         
         <motion.div 

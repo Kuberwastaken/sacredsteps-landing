@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Heart, Flame } from "lucide-react";
+import { Heart, Flame, Brain, Sparkles } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 export default function DemoSection() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -24,7 +25,7 @@ export default function DemoSection() {
   };
 
   return (
-    <section id="demo" className="py-20 bg-sacred-light">
+    <section id="demo" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -33,8 +34,12 @@ export default function DemoSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold sacred-primary mb-4">Experience Sacred Steps</h2>
-          <p className="text-xl sacred-secondary">Try a sample lesson to see how our approach makes learning about world religions engaging</p>
+          <Badge className="mb-4 bg-gray-900 text-white hover:bg-gray-800">
+            <Brain className="w-3 h-3 mr-1" />
+            AI-Generated Demo
+          </Badge>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Experience AI-Powered Learning</h2>
+          <p className="text-xl text-gray-600">Try a sample lesson created by our AI to see how personalized and engaging religious education can be</p>
         </motion.div>
         
         <div className="max-w-4xl mx-auto">
