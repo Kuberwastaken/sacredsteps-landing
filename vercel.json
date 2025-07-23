@@ -3,10 +3,6 @@
   "outputDirectory": "dist/public",
   "routes": [
     {
-      "src": "/favicon/(.*)",
-      "dest": "/client/favicon/$1"
-    },
-    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },
