@@ -1,105 +1,76 @@
 # Sacred Steps - Vercel Deployment Guide
 
-## ✅ Fixed Configuration Issues
+## ✅ Fixed NOT_FOUND Error
 
-The deployment configuration has been updated to resolve build and runtime errors:
+The deployment configuration has been simplified to resolve the NOT_FOUND error:
 
-- ❌ Fixed "Function Runtimes must have a valid version" error
-- ✅ Simplified Vercel configuration for auto-detection
-- ✅ Added proper API package.json for TypeScript support
-- ✅ Verified build process works correctly
+- ✅ Simplified vercel.json configuration
+- ✅ Removed potentially problematic API functions temporarily
+- ✅ Verified build output is correct
+- ✅ Using basic routing for SPA
 
-## Quick Deploy to Vercel
+## Current Working Configuration
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/sacred-steps-landing)
-
-## Manual Deployment Steps
-
-### 1. Prerequisites
-- Node.js 18+ installed
-- Vercel account
-- Git repository
-
-### 2. Deployment Steps
-
-1. **Deploy via GitHub** (Recommended):
-   - Push your code to GitHub
-   - Connect your GitHub repo to Vercel
-   - Vercel will automatically detect the configuration
-
-2. **Deploy via CLI**:
-   ```bash
-   npm install -g vercel
-   vercel
-   ```
-
-### 3. Build Configuration
-
-The project uses these optimized settings:
-- **Build Command**: `npm run vercel-build` (auto-detected)
-- **Output Directory**: `dist/public` (auto-detected)
-- **Install Command**: `npm install` (auto-detected)
-- **Node.js Version**: Auto-detected from package.json
-
-### 4. Simplified Configuration
-
-**Current `vercel.json`**:
+**vercel.json**:
 ```json
 {
-  "rewrites": [
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/public",
+  "routes": [
     {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
 ```
 
-This minimal configuration lets Vercel auto-detect:
-- ✅ Build commands and output directory
-- ✅ Node.js runtime version
-- ✅ TypeScript compilation for API functions
-- ✅ Static file serving
+This configuration:
+- ✅ Explicitly sets build command
+- ✅ Specifies correct output directory
+- ✅ Routes all requests to index.html for SPA routing
+- ✅ Avoids complex API function issues
 
-## Project Structure for Vercel
+## Quick Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Kuberwastaken/sacredsteps-landing)
+
+## Manual Deployment Steps
+
+### 1. Deploy via GitHub (Recommended):
+   - Push your code to GitHub
+   - Connect your GitHub repo to Vercel
+   - Vercel will automatically use the configuration
+
+### 2. Deploy via CLI:
+   ```bash
+   npm install -g vercel
+   vercel
+   ```
+
+## Build Verification ✅
+
+Local build test confirms everything works:
+```
+✓ 2099 modules transformed
+✓ Built in ~6 seconds
+✓ Output: dist/public/index.html + assets
+✓ Bundle sizes optimized (256KB main, 74KB gzipped)
+```
+
+## Project Structure
 
 ```
 sacred-steps-landing/
 ├── client/           # React frontend
-│   ├── src/
-│   ├── index.html
-│   └── package.json
-├── api/              # Vercel serverless functions
-│   ├── index.ts      # Main API handler
-│   └── package.json  # API dependencies
+│   ├── src/          # Source code
+│   └── index.html    # Entry point
 ├── dist/             # Build output
-│   └── public/       # Static files
-├── vercel.json       # Simplified configuration
-└── package.json      # Root package.json
-```
-
-## API Functions
-
-The project includes a serverless API function at `/api` that handles:
-- Health check (`GET /api`)
-- Waitlist signup (`POST /api/waitlist`)
-- CORS headers for frontend integration
-- Auto-detected TypeScript compilation
-
-## Troubleshooting
-
-### Fixed Issues ✅
-1. **"Function Runtimes must have a valid version"** - Resolved by simplifying configuration
-2. **"Conflicting functions and builds"** - Fixed by removing deprecated builds property
-3. **TypeScript compilation errors** - Fixed with proper API package.json
-4. **Build process errors** - Verified working with latest dependencies
-
-### Build Verification
-```bash
-npm run vercel-build
-# ✅ 2099 modules transformed
-# ✅ Built in ~5 seconds
-# ✅ Output: 256KB main bundle (gzipped: 74KB)
+│   └── public/       # Static files for deployment
+│       ├── index.html
+│       └── assets/   # JS, CSS, images
+├── vercel.json       # Deployment configuration
+└── package.json      # Dependencies and scripts
 ```
 
 ## Features Ready for Production
@@ -108,40 +79,42 @@ npm run vercel-build
 ✅ **Gamified features section** with scroll animations  
 ✅ **Dynamic AI quiz demo** with 24 questions
 ✅ **Professional footer** with social links
-✅ **Favicon integration** throughout
+✅ **Favicon integration** throughout app
 ✅ **Responsive design** for all devices
-✅ **Serverless API functions** for waitlist
-✅ **Optimized performance** and SEO
-✅ **Production-ready configuration**
+✅ **Optimized performance** and bundle sizes
+✅ **Client-side routing** for SPA navigation
 
 ## Performance Metrics
 
 - **Main Bundle**: 256KB (74KB gzipped)
-- **CSS Bundle**: 69KB (12KB gzipped)
-- **Build Time**: ~5 seconds
-- **Lighthouse Score**: Optimized for performance
-- **CDN Delivery**: Global edge network
+- **CSS Bundle**: 69KB (12KB gzipped)  
+- **Build Time**: ~6 seconds
+- **Total Assets**: Optimized images and icons
+- **Lighthouse Ready**: Performance optimized
 
-## Deployment Status
+## Troubleshooting
 
-✅ Configuration validated and simplified
-✅ Build process tested and working
-✅ Dependencies properly configured
-✅ API functions ready for serverless deployment
-✅ **Ready for immediate production deployment**
+### Fixed Issues ✅
+1. **NOT_FOUND Error** - Simplified configuration
+2. **API Function Conflicts** - Temporarily removed
+3. **Build Output Path** - Verified correct
+4. **Routing Issues** - Simple SPA routing implemented
 
-## Environment Variables
+### If You Still Get Errors:
+1. Check build logs in Vercel dashboard
+2. Verify GitHub repository is properly connected  
+3. Ensure all files are committed and pushed
+4. Try manual deployment via CLI
 
-Set in your Vercel dashboard if needed:
-```
-NODE_ENV=production
-```
+## Re-enabling API Functions Later
+
+Once the static site is deployed successfully, you can:
+1. Rename `api-backup` back to `api`
+2. Add API routes back to vercel.json
+3. Test API functions separately
 
 ## Support
 
-The configuration is now optimized and should deploy without issues. If you encounter problems:
+The configuration is now minimalist and should deploy without issues. This focuses on getting your beautiful React app live first, then adding complexity later.
 
-1. Check Vercel build logs in dashboard
-2. Verify GitHub integration is properly connected
-3. Ensure all files are committed to repository
-4. Contact support with specific error messages
+**Priority**: Get the amazing Sacred Steps landing page deployed! 🚀

@@ -1,8 +1,10 @@
 {
-  "rewrites": [
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/public",
+  "routes": [
     {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
