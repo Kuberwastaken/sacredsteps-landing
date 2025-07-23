@@ -10,10 +10,6 @@
       }
     },
     {
-      "src": "/favicon/(.*)",
-      "dest": "/client/favicon/$1"
-    },
-    {
       "src": "/(.*\\.(js|mjs|css|map|json|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|webmanifest)$)",
       "dest": "/$1",
       "headers": {
