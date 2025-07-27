@@ -50,7 +50,7 @@ export default function WaitlistSection() {
       setIsSubmitted(true);
       queryClient.invalidateQueries({ queryKey: ['/api/waitlist/count'] });
       toast({
-        title: "Welcome to Sacred Steps!",
+        title: "Welcome to praygo!",
         description: "You've successfully joined our waitlist. We'll be in touch soon!",
       });
     },
@@ -100,7 +100,7 @@ export default function WaitlistSection() {
             >
               <CheckCircle className="w-20 h-20 text-emerald-500 mx-auto mb-6" />
             </motion.div>
-            <h2 className="text-4xl font-bold sacred-gray mb-4">Welcome to Sacred Steps!</h2>
+            <h2 className="text-4xl font-bold sacred-gray mb-4">Welcome to praygo!</h2>
             <p className="text-xl text-gray-600 mb-8">
               You're now #{waitlistCount + 1} on our waitlist. We'll send you updates as we approach launch!
             </p>
@@ -218,7 +218,7 @@ export default function WaitlistSection() {
                     className="mt-1"
                   />
                   <Label htmlFor="updates" className="text-sm text-gray-600">
-                    I'd like to receive updates about Sacred Steps development and launch notifications
+                    I'd like to receive updates about praygo development and launch notifications
                   </Label>
                 </div>
                 

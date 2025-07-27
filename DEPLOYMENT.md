@@ -1,4 +1,4 @@
-# Sacred Steps - Vercel Deployment Guide
+# praygo - Vercel Deployment Guide
 
 ## ✅ Fixed NOT_FOUND Error
 
@@ -33,7 +33,7 @@ This configuration:
 
 ## Quick Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Kuberwastaken/sacredsteps-landing)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Kuberwastaken/praygo-landing)
 
 ## Manual Deployment Steps
 
@@ -117,4 +117,4 @@ Once the static site is deployed successfully, you can:
 
 The configuration is now minimalist and should deploy without issues. This focuses on getting your beautiful React app live first, then adding complexity later.
 
-**Priority**: Get the amazing Sacred Steps landing page deployed! 🚀
+**Priority**: Get the amazing praygo landing page deployed! 🚀

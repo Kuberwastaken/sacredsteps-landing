@@ -18,12 +18,12 @@ export default function Navigation() {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center">
               <img 
                 src="/favicon/favicon-96x96.png" 
-                alt="Sacred Steps Logo" 
+                alt="praygo Logo" 
                 className="w-8 h-8 rounded-lg"
               />
             </div>
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-semibold text-gray-900">Sacred Steps</span>
+              <span className="text-xl font-semibold text-gray-900">praygo</span>
               <Badge variant="outline" className="text-xs border-gray-300 text-gray-700">
                 <Sparkles className="w-2 h-2 mr-1" />
                 AI

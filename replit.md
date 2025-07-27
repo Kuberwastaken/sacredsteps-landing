@@ -1,8 +1,8 @@
-# Sacred Steps - Religious Education Platform
+# praygo - Religious Education Platform
 
 ## Overview
 
-Sacred Steps is a gamified learning platform designed to make exploring world religions accessible, engaging, and rewarding for learners of all backgrounds. The application is built as a modern full-stack web application with a React frontend, Express.js backend, and PostgreSQL database using Drizzle ORM.
+praygo is a gamified learning platform designed to make exploring world religions accessible, engaging, and rewarding for learners of all backgrounds. The application is built as a modern full-stack web application with a React frontend, Express.js backend, and PostgreSQL database using Drizzle ORM.
 
 ## User Preferences
 

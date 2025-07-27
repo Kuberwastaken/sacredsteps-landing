@@ -1,4 +1,4 @@
-// Simple API handler for Sacred Steps
+// Simple API handler for praygo
 export default async function handler(req: any, res: any) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -15,10 +15,10 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  // Simple API handler for Sacred Steps
+  // Simple API handler for praygo
   if (req.method === 'GET' && req.url === '/api') {
     res.status(200).json({ 
-      message: 'Sacred Steps API is running',
+      message: 'praygo API is running',
       timestamp: new Date().toISOString()
     });
     return;

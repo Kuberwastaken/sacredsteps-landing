@@ -4,24 +4,24 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is Sacred Steps respectful to all religious traditions?",
-    answer: "Absolutely. Sacred Steps is developed in collaboration with religious scholars and community leaders from each tradition we cover. Our content is reviewed for accuracy, respect, and cultural sensitivity. We present religions as they understand themselves, not through the lens of any particular tradition."
+    question: "Is praygo respectful to all religious traditions?",
+    answer: "Absolutely. praygo is developed in collaboration with religious scholars and community leaders from each tradition we cover. Our content is reviewed for accuracy, respect, and cultural sensitivity. We present religions as they understand themselves, not through the lens of any particular tradition."
   },
   {
     question: "What religions are covered on the platform?",
     answer: "We currently cover 12+ major world religions including Christianity, Islam, Judaism, Hinduism, Buddhism, Sikhism, Jainism, Taoism, Shintoism, and various indigenous spiritual traditions. We're continuously adding more content based on user interest and scholarly partnerships."
   },
   {
-    question: "When will Sacred Steps be available?",
+    question: "When will praygo be available?",
     answer: "We're currently in closed beta testing and plan to launch publicly in Q2 2024. Waitlist members will get early access starting in March 2024, with full release following shortly after based on feedback and testing results."
   },
   {
-    question: "Will there be a cost to use Sacred Steps?",
-    answer: "Sacred Steps will offer both free and premium tiers. The free tier includes access to core lessons and basic features. Premium subscribers get advanced progress tracking, exclusive content, personalized learning paths, and early access to new religions and features. Waitlist members receive 6 months of premium features free."
+    question: "Will there be a cost to use praygo?",
+    answer: "praygo will offer both free and premium tiers. The free tier includes access to core lessons and basic features. Premium subscribers get advanced progress tracking, exclusive content, personalized learning paths, and early access to new religions and features. Waitlist members receive 6 months of premium features free."
   },
   {
-    question: "Can educators use Sacred Steps in classrooms?",
-    answer: "Yes! We're developing Sacred Steps for Schools with features specifically designed for educators, including classroom management tools, progress tracking for students, curriculum alignment, and assessment features. Educational pricing and bulk licensing will be available."
+    question: "Can educators use praygo in classrooms?",
+    answer: "Yes! We're developing praygo for Schools with features specifically designed for educators, including classroom management tools, progress tracking for students, curriculum alignment, and assessment features. Educational pricing and bulk licensing will be available."
   }
 ];
 
@@ -43,7 +43,7 @@ export default function FAQSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold sacred-primary mb-4">Frequently Asked Questions</h2>
-          <p className="text-xl sacred-secondary">Everything you need to know about Sacred Steps</p>
+          <p className="text-xl sacred-secondary">Everything you need to know about praygo</p>
         </motion.div>
         
         <div className="space-y-6">

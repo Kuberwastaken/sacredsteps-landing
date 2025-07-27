@@ -51,7 +51,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <Sparkles className="w-4 h-4 text-gray-600" />
-              <span className="text-sm font-medium text-gray-700">Powered by AI • 1,000+ learners joined</span>
+              <span className="text-sm font-medium text-gray-700">With the Magic of AI</span>
             </motion.div>
             
             <motion.h1 
@@ -72,7 +72,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Sacred Steps is the world's first AI-powered religious education platform. Experience personalized, gamified lessons that adapt to your learning style while exploring world religions with respect and authenticity.
+              praygo is the world's first AI-powered religious education platform. Experience personalized, gamified lessons that adapt to your learning style while exploring world religions with respect and authenticity.
             </motion.p>
             
             <motion.div 
@@ -145,13 +145,13 @@ export default function HeroSection() {
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                           <img 
-                            src="/favicon/favicon-96x96.png" 
-                            alt="Sacred Steps Logo" 
+                            src="/assets/favicon-96x96.png" 
+                            alt="praygo Logo" 
                             className="w-10 h-10"
                           />
                         </div>
                         <div>
-                          <h3 className="font-bold sacred-primary">Sacred Steps</h3>
+                          <h3 className="font-bold sacred-primary">praygo</h3>
                           <p className="text-xs sacred-secondary">Level 12 • Buddhism</p>
                         </div>
                       </div>

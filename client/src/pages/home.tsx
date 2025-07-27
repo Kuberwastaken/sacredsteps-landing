@@ -24,10 +24,10 @@ export default function Home() {
               <div className="flex items-center space-x-3 mb-4">
                 <img 
                   src="/favicon/favicon-96x96.png" 
-                  alt="Sacred Steps Logo" 
+                  alt="praygo Logo" 
                   className="w-8 h-8 rounded-lg"
                 />
-                <span className="text-xl font-semibold text-gray-900">Sacred Steps</span>
+                <span className="text-xl font-semibold text-gray-900">praygo</span>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
                 Duolingo for Religion - Making world faiths accessible to all.
@@ -99,10 +99,10 @@ export default function Home() {
           <div className="border-t border-gray-200 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-sm text-gray-500 mb-4 md:mb-0">
-                © 2024 Sacred Steps. Building bridges through understanding.
+                © 2024 praygo. Building bridges through understanding.
               </p>
               <p className="text-xs text-gray-400 text-center md:text-right max-w-md">
-                Sacred Steps is committed to presenting all religious content with accuracy, respect, and scholarly integrity.
+                praygo is committed to presenting all religious content with accuracy, respect, and scholarly integrity.
               </p>
             </div>
           </div>
