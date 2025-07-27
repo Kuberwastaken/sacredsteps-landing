@@ -145,7 +145,7 @@ export default function HeroSection() {
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                           <img 
-                            src="/assets/favicon-96x96.png" 
+                            src="/favicon/favicon-96x96.png" 
                             alt="praygo Logo" 
                             className="w-10 h-10"
                           />
