@@ -23,7 +23,7 @@ export default function Home() {
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/favicon/favicon-96x96.png" 
+                  src="public/assets/logo.png" 
                   alt="praygo Logo" 
                   className="w-8 h-8 rounded-lg"
                 />

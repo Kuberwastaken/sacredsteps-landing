@@ -17,7 +17,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center">
               <img 
-                src="/favicon/favicon-96x96.png" 
+                src="public/assets/logo.png" 
                 alt="praygo Logo" 
                 className="w-8 h-8 rounded-lg"
               />
