@@ -16,9 +16,9 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-              <img 
-                src="public/assets/logo.png" 
-                alt="praygo Logo" 
+              <img
+                src="/assets/logo.png"
+                alt="Logo"
                 className="w-8 h-8 rounded-lg"
               />
             </div>

@@ -22,11 +22,11 @@ export default function Home() {
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
-                <img 
-                  src="public/assets/logo.png" 
-                  alt="praygo Logo" 
-                  className="w-8 h-8 rounded-lg"
-                />
+                <img
+                    src="/assets/logo.png"
+                    alt="Logo"
+                    className="w-8 h-8 rounded-lg"
+                  />
                 <span className="text-xl font-semibold text-gray-900">praygo</span>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
